@@ -1,0 +1,54 @@
+<h1>Level 2</h1>
+
+<!--
+  TODO: Complete the Angular code by adding proper data bindings.
+  At the end, this should become a working connect-four-game on a
+  4 x 4 board.
+-->
+
+<table class="connect-four-board">
+  <tbody>
+    <tr>
+      <td class="indicator">
+        <app-column-indicator [columnIndex]="0" (drop)="drop($event)" [playerIndex]="currentPlayerIndex"></app-column-indicator>
+      </td>
+      <td class="indicator">
+        <app-column-indicator [columnIndex]="1" (drop)="drop($event)" [playerIndex]="currentPlayerIndex"></app-column-indicator>
+      </td>
+      <td class="indicator">
+        <app-column-indicator [columnIndex]="2" (drop)="drop($event)" [playerIndex]="currentPlayerIndex"></app-column-indicator>
+      </td>
+      <td class="indicator">
+        <app-column-indicator [columnIndex]="3" (drop)="drop($event)" [playerIndex]="currentPlayerIndex"></app-column-indicator>
+      </td>
+    </tr>
+    <tr>
+      <td><div class="coin"></div></td>
+      <td><div class="coin"></div></td>
+      <td><div class="coin"></div></td>
+      <td><div class="coin"></div></td>
+    </tr>
+    <tr>
+      <td><div class="coin"></div></td>
+      <td><div class="coin"></div></td>
+      <td><div class="coin"></div></td>
+      <td><div class="coin"></div></td>
+    </tr>
+    <tr>
+      <td><div class="coin"></div></td>
+      <td><div class="coin"></div></td>
+      <td><div class="coin"></div></td>
+      <td><div class="coin"></div></td>
+    </tr>
+    <tr>
+      <td><div class="coin"></div></td>
+      <td><div class="coin"></div></td>
+      <td><div class="coin"></div></td>
+      <td><div class="coin"></div></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>The winner is ...</h2>
+
+<button>Restart</button>

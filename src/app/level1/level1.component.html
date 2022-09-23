@@ -1,0 +1,53 @@
+<h1>Level 1</h1>
+
+<!--
+  This file demonstrates the basic structure of the existing CSS styles and column selectors.
+  You do not need to change anything here, just find out and understand how it works.
+-->
+
+<table class="connect-four-board">
+  <tbody>
+    <tr>
+      <td class="indicator">
+        <app-column-indicator [columnIndex]="0" (drop)="drop($event)" [playerIndex]="currentPlayerIndex"></app-column-indicator>
+      </td>
+      <td class="indicator">
+        <app-column-indicator [columnIndex]="1" (drop)="drop($event)" [playerIndex]="currentPlayerIndex"></app-column-indicator>
+      </td>
+      <td class="indicator">
+        <app-column-indicator [columnIndex]="2" (drop)="drop($event)" [playerIndex]="currentPlayerIndex"></app-column-indicator>
+      </td>
+      <td class="indicator">
+        <app-column-indicator [columnIndex]="3" (drop)="drop($event)" [playerIndex]="currentPlayerIndex"></app-column-indicator>
+      </td>
+    </tr>
+    <tr>
+      <td><div class="coin"></div></td>
+      <td><div class="coin"></div></td>
+      <td><div class="coin"></div></td>
+      <td><div class="coin" [class]="'occupied-1'"></div></td>
+    </tr>
+    <tr>
+      <td><div class="coin"></div></td>
+      <td><div class="coin"></div></td>
+      <td><div class="coin" [class]="'occupied-1'"></div></td>
+      <td><div class="coin" [class]="'occupied-2'"></div></td>
+    </tr>
+    <tr>
+      <td><div class="coin" [class]="'occupied-1'"></div></td>
+      <td><div class="coin" [class]="'occupied-1'"></div></td>
+      <td><div class="coin" [class]="'occupied-2'"></div></td>
+      <td><div class="coin" [class]="'occupied-1'"></div></td>
+    </tr>
+    <tr>
+      <td><div class="coin" [class]="'occupied-1'"></div></td>
+      <td><div class="coin" [class]="'occupied-2'"></div></td>
+      <td><div class="coin" [class]="'occupied-1'"></div></td>
+      <td><div class="coin" [class]="'occupied-2'"></div></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2>The winner is ...</h2>
+
+<button>Restart</button>

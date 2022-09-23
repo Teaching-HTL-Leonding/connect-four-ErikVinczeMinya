@@ -1,0 +1,11 @@
+path {
+  fill: #f0f0f0;
+}
+
+.player-1:hover {
+  fill: red;
+}
+
+.player-2:hover {
+  fill: blue;
+}
