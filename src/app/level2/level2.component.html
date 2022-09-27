@@ -23,32 +23,31 @@
       </td>
     </tr>
     <tr>
-      <td><div class="coin"></div></td>
-      <td><div class="coin"></div></td>
-      <td><div class="coin"></div></td>
-      <td><div class="coin"></div></td>
+      <td><div class="coin" [class]="getStyle(0,0)"></div></td>
+      <td><div class="coin" [class]="getStyle(1,0)"></div></td>
+      <td><div class="coin" [class]="getStyle(2,0)"></div></td>
+      <td><div class="coin" [class]="getStyle(3,0)"></div></td>
     </tr>
     <tr>
-      <td><div class="coin"></div></td>
-      <td><div class="coin"></div></td>
-      <td><div class="coin"></div></td>
-      <td><div class="coin"></div></td>
+      <td><div class="coin" [class]="getStyle(0,1)"></div></td>
+      <td><div class="coin" [class]="getStyle(1,1)"></div></td>
+      <td><div class="coin" [class]="getStyle(2,1)"></div></td>
+      <td><div class="coin" [class]="getStyle(3,1)"></div></td>
     </tr>
     <tr>
-      <td><div class="coin"></div></td>
-      <td><div class="coin"></div></td>
-      <td><div class="coin"></div></td>
-      <td><div class="coin"></div></td>
+      <td><div class="coin" [class]="getStyle(0,2)"></div></td>
+      <td><div class="coin" [class]="getStyle(1,2)"></div></td>
+      <td><div class="coin" [class]="getStyle(2,2)"></div></td>
+      <td><div class="coin" [class]="getStyle(3,2)"></div></td>
     </tr>
     <tr>
-      <td><div class="coin"></div></td>
-      <td><div class="coin"></div></td>
-      <td><div class="coin"></div></td>
-      <td><div class="coin"></div></td>
+      <td><div class="coin" [class]="getStyle(0,3)"></div></td>
+      <td><div class="coin" [class]="getStyle(1,3)"></div></td>
+      <td><div class="coin" [class]="getStyle(2,3)"></div></td>
+      <td><div class="coin" [class]="getStyle(3,3)"></div></td>
     </tr>
   </tbody>
 </table>
 
-<h2>The winner is ...</h2>
-
-<button>Restart</button>
+<h2 [hidden]="winnerIndex === 0">The Winner is {{getWinnerName()}}</h2>
+<button (click)="onRestart()">Restart</button>
