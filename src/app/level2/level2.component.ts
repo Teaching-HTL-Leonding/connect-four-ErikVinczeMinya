@@ -7,7 +7,7 @@ import { Component } from '@angular/core';
 export class Level2Component {
   public board!: number[][];
   public currentPlayerIndex!: number;
-  private currentWinnerIndex!: number;
+  public currentWinnerIndex!: number;
   private playerNames!: string[];
 
   public drop(colIx: number) {
@@ -15,11 +15,11 @@ export class Level2Component {
     for (let row = this.board.length - 1; row >= 0; row--) {
       if (this.currentWinnerIndex === 0 && this.board[row][colIx] === 0) {
         this.board[row][colIx] = this.currentPlayerIndex;
-        this.currentPlayerIndex = this.currentPlayerIndex === 1 ? 2 : 1;
         break;
       }
     }
     this.currentWinnerIndex = this.getWinnerIndex();
+    this.currentPlayerIndex = this.currentPlayerIndex === 1 ? 2 : 1;
   }
 
   constructor() {
@@ -27,6 +27,9 @@ export class Level2Component {
     this.onRestart();
   }
   public getWinnerName(): string {
+    if(this.currentWinnerIndex === 0) {
+      return '';
+    }
     return this.currentWinnerIndex === 1 ? 'Red' : 'Blue';
   }
 
