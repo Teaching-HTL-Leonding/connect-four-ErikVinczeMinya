@@ -6,10 +6,6 @@ import { Level2Component } from '../level2/level2.component';
   styleUrls: ['./level3.component.css'],
 })
 export class Level3Component extends Level2Component {
-  // TODO: Complete this class by adding the appropriate code.
-  // Try to avoid copying the code from level 2. Find a different solution
-  // for reusing the existing logic.
-
   private arrowColIx!: number[];
 
   constructor() {
@@ -80,34 +76,49 @@ export class Level3Component extends Level2Component {
       }
     }
 
-    //diagonals (left-right) [Not Complete]
-    for (let j = 0; j < 4; j++) {
-      for (let i = 0; i < this.board.length; i++) {
-        if (this.board[i][i + j] === this.currentPlayerIndex) {
-          winnerCount++;
-          if (winnerCount === 4) {
-            winner = this.board[i][i + j];
-            break;
+    //diagonals
+    for (let row = 0; row < this.board.length; row++) {
+      for (let col = 0; col < this.board[row].length; col++) {
+        if (this.board[row][col] === this.currentPlayerIndex) {
+          if (this.board[row + 1] !== undefined) {
+            if (this.board[row + 1][col + 1] === this.currentPlayerIndex) {
+              if (this.board[row + 2] !== undefined) {
+                if (this.board[row + 2][col + 2] === this.currentPlayerIndex) {
+                  if (this.board[row + 3] !== undefined) {
+                    if (
+                      this.board[row + 3][col + 3] === this.currentPlayerIndex
+                    ) {
+                      winner = this.board[row][col];
+                      break;
+                    }
+                  }
+                }
+              }
+            }
           }
-        } else {
-          winnerCount = 0;
+          if (this.board[row + 1] !== undefined) {
+            if (this.board[row + 1][col - 1] === this.currentPlayerIndex) {
+              if (this.board[row + 2] !== undefined) {
+                if (this.board[row + 2][col - 2] === this.currentPlayerIndex) {
+                  if (this.board[row + 3] !== undefined) {
+                    if (
+                      this.board[row + 3][col - 3] === this.currentPlayerIndex
+                    ) {
+                      winner = this.board[row][col];
+                      break;
+                    }
+                  }
+                }
+              }
+            }
+          }
         }
       }
-      winnerCount = 0;
-
-      for (let i = 0; i < this.board[0].length; i++) {
-        if (this.board[i + j][i] === this.currentPlayerIndex) {
-          winnerCount++;
-          if (winnerCount === 4) {
-            winner = this.board[i + j][i];
-            break;
-          }
-        } else {
-          winnerCount = 0;
-        }
+      if (winner !== 0) {
+        break;
       }
-      winnerCount = 0;
     }
+
     return winner;
   }
 }
