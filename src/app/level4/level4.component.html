@@ -1,5 +1,17 @@
 <h1>Level 4</h1>
 
-<!--
-  TODO: Enhance solution from level 3 by extracting the logic in a separate Angular service.
--->
+<table class="connect-four-board">
+  <tbody>
+    <tr>
+      <td class="indicator" *ngFor="let arrowCol of getArrowColIx(); let arrowColIx = index">
+        <app-column-indicator [columnIndex]="arrowColIx" (drop)="boardService.drop($event)" [playerIndex]="boardService.currentPlayerIndex"></app-column-indicator>
+      </td>
+    </tr>
+    <tr *ngFor="let row of getCells(); let rowIx = index">
+      <td *ngFor="let col of row; let colIx = index"><div class="coin" [class]="getStyle(colIx,rowIx)"></div></td>
+    </tr>
+  </tbody>
+</table>
+
+<h2 [hidden]="boardService.winnerIndex === 0">The Winner is {{getWinnerName()}}</h2>
+<button (click)="boardService.restart()">Restart</button>
